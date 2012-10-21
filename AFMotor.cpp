@@ -1,7 +1,7 @@
 // Adafruit Motor shield library
 // copyright Adafruit Industries LLC, 2009
 // this code is public domain, enjoy!
-
+//testThemthangs
 
 #if (ARDUINO >= 100)
   #include "Arduino.h"
@@ -379,21 +379,21 @@ void AF_DCMotor::run(uint8_t cmd) {
   default:
     return;
   }
-  
+
   switch (cmd) {
   case FORWARD:
     latch_state |= _BV(a);
-    latch_state &= ~_BV(b); 
+    latch_state &= ~_BV(b);
     MC.latch_tx();
     break;
   case BACKWARD:
     latch_state &= ~_BV(a);
-    latch_state |= _BV(b); 
+    latch_state |= _BV(b);
     MC.latch_tx();
     break;
   case RELEASE:
     latch_state &= ~_BV(a);     // A and B both low
-    latch_state &= ~_BV(b); 
+    latch_state &= ~_BV(b);
     MC.latch_tx();
     break;
   }
@@ -427,7 +427,7 @@ AF_Stepper::AF_Stepper(uint16_t steps, uint8_t num) {
     latch_state &= ~_BV(MOTOR1_A) & ~_BV(MOTOR1_B) &
       ~_BV(MOTOR2_A) & ~_BV(MOTOR2_B); // all motor pins to 0
     MC.latch_tx();
-    
+
     // enable both H bridges
     pinMode(11, OUTPUT);
     pinMode(3, OUTPUT);
@@ -509,7 +509,7 @@ void AF_Stepper::step(uint16_t steps, uint8_t dir,  uint8_t style) {
       if (steppingcounter >= 1000) {
 	delay(1);
 	steppingcounter -= 1000;
-      } 
+      }
     }
   }
 }
@@ -571,7 +571,7 @@ uint8_t AF_Stepper::onestep(uint8_t dir, uint8_t style) {
     } else {
        currentstep -= MICROSTEPS/2;
     }
-  } 
+  }
 
   if (style == MICROSTEP) {
     if (dir == FORWARD) {
@@ -605,8 +605,8 @@ uint8_t AF_Stepper::onestep(uint8_t dir, uint8_t style) {
 
 #ifdef MOTORDEBUG
   Serial.print("current step: "); Serial.println(currentstep, DEC);
-  Serial.print(" pwmA = "); Serial.print(ocra, DEC); 
-  Serial.print(" pwmB = "); Serial.println(ocrb, DEC); 
+  Serial.print(" pwmA = "); Serial.print(ocra, DEC);
+  Serial.print(" pwmB = "); Serial.println(ocrb, DEC);
 #endif
 
   if (steppernum == 1) {
@@ -647,7 +647,7 @@ uint8_t AF_Stepper::onestep(uint8_t dir, uint8_t style) {
       break;
     case 4:
       latch_state |= c; // energize coil 3 only
-      break; 
+      break;
     case 5:
       latch_state |= c | d; // energize coil 3+4
       break;
@@ -660,7 +660,7 @@ uint8_t AF_Stepper::onestep(uint8_t dir, uint8_t style) {
     }
   }
 
- 
+
   MC.latch_tx();
   return currentstep;
 }
