@@ -1,4 +1,4 @@
-//THIS IS ONLY A TEST.  I am learning git!!! 
+10/21/12 THIS IS ONLY A TEST.  I am learning git!!! 
 This is the August 12, 2009 Adafruit Motor shield firmware with basic Microstepping support. Works with all Arduinos and the Mega
 Updated in September 2012 for use on PIC32 architecture (chipKIT/MPIDE)
 
